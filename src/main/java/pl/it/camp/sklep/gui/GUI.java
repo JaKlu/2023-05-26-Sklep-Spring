@@ -8,15 +8,16 @@ import pl.it.camp.sklep.model.product.Product;
 import pl.it.camp.sklep.model.user.User;
 
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 @Component
 public class GUI implements IGUI {
+    private static final Scanner scanner = new Scanner(System.in);
+    @Autowired
+    private IProductRepository products;
     @Autowired
     private IUserRepository users;
-    private static final Scanner scanner = new Scanner(System.in);
 
     @Override
     public String printInitialMenu() {
@@ -42,10 +43,10 @@ public class GUI implements IGUI {
     }
 
     @Override
-    public void printProductList(List<Product> products, User user) {
+    public void printProductList(User user) {
         System.out.println("-".repeat(12));
         boolean isEmpty = true;
-        for (Product element : products) {
+        for (Product element : products.getProducts()) {
             if (user.getFunction().equals("Administrator")) {
                 System.out.println("| " + element);
             } else if (element.getQuantity() > 0) {
@@ -87,7 +88,7 @@ public class GUI implements IGUI {
     }
 
     @Override
-    public void supplyProduct(IProductRepository products, String code, int quantity) {
+    public void supplyProduct(String code, int quantity) {
         System.out.println("-".repeat(7));
         if (products.supplyProduct(code, quantity)) {
             Product product = products.findProductByCode(code);
@@ -104,7 +105,7 @@ public class GUI implements IGUI {
     }
 
     @Override
-    public void printUserList(IUserRepository users) {
+    public void printUserList() {
         System.out.println("-".repeat(8));
         for (Map.Entry<String, User> entry : users.getUsers().entrySet()) {
             System.out.println(entry.getValue().getFunction() + " | " + entry.getValue().getLogin());
@@ -114,7 +115,7 @@ public class GUI implements IGUI {
 
     @Override
     public void changeFunction() {
-        printUserList(users);
+        printUserList();
         String login = readLogin();
         if (users.findUserByLogin(login) == null) {
             System.out.println("Błędna nazwa użytkownika");

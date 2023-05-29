@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pl.it.camp.sklep.configuration.AppConfiguration;
 import pl.it.camp.sklep.core.Core;
+import pl.it.camp.sklep.core.ICore;
 
 
 /**
@@ -55,7 +56,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 
-        Core core = context.getBean(Core.class);
+        ICore core = context.getBean(Core.class);
 
         core.start();
     }

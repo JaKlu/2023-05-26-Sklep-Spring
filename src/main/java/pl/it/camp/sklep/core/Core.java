@@ -39,7 +39,7 @@ public class Core implements ICore {
                     while (true) {
                         switch (gui.printInternalMenu(loggedUser)) {
                             case "1":
-                                gui.printProductList(products.getProducts(), loggedUser);
+                                gui.printProductList(loggedUser);
                                 break;
                             case "2":
                                 gui.buyProduct(products, gui.readProductCode(), gui.readProductQuantity());
@@ -48,7 +48,7 @@ public class Core implements ICore {
                                 break loggedUserLoop;
                             case "4":
                                 if (loggedUser.getFunction().equals("Administrator")) {
-                                    gui.supplyProduct(products, gui.readProductCode(), gui.readProductQuantity());
+                                    gui.supplyProduct(gui.readProductCode(), gui.readProductQuantity());
                                 }
                                 break;
                             case "5":

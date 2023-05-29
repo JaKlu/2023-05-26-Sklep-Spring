@@ -5,7 +5,6 @@ public class Keyboard extends Product {
         super(code, "Klawiatura", name, price, quantity);
     }
 
-
     public Keyboard(String[] vars) {
         super(vars);
     }
