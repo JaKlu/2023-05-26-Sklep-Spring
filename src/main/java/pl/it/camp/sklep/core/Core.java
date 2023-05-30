@@ -26,7 +26,7 @@ public class Core implements ICore {
         try {
             fileLoader.readDataFromFile();
         } catch (IOException e) {
-            System.out.println("ERROR while reading from database");
+            System.out.println("BŁĄD podczas odczytu bazy danych");
             return;
         }
         programLoop:
@@ -68,7 +68,7 @@ public class Core implements ICore {
                     try {
                         fileLoader.saveDataToFile();
                     } catch (IOException e) {
-                        System.out.println("ERROR while writing to database");
+                        System.out.println("BŁĄD podczas zapisu bazy danych");
                     }
                     break programLoop;
                 default:

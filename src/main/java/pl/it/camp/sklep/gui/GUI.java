@@ -137,11 +137,7 @@ public class GUI implements IGUI {
 
     @Override
     public User readLoginAndPassword() {
-        System.out.println("Login:");
-        String login = scanner.nextLine();
-
-        System.out.println("Hasło:");
-        return new User(login, scanner.nextLine());
+        return new User(readLogin(), readPassword());
     }
 
     @Override

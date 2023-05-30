@@ -12,11 +12,11 @@ public class UserRepository implements IUserRepository {
     private final Map<String, User> users = new HashMap<>();
 
 /*    public UserRepository() {
-        this.users.put("admin", new Admin("admin", "6bdbb8e3b90a36d5b3245d2d9a1b4a9f")); //12345
-        this.users.put("Kuba", new Admin("Kuba", "1f56201436ad0377399bdfe0ee2b1279")); //456
-        this.users.put("Tomek", new Customer("Tomek", "cf9fac80c86b9714c697d4204829e9af")); //23456
-        this.users.put("Olek", new Customer("Olek", "1e7cc5f664c541e5a4ee57eab6b73abb")); //34567
-        this.users.put("Wojtek", new Customer("Wojtek", "44cf3a7e1def7261e426cbda3f936ec4")); //45678
+        this.users.put("admin", new Admin("admin", "6bdbb8e3b90a36d5b3245d2d9a1b4a9f"));        //pass: 12345
+        this.users.put("Kuba", new Admin("Kuba", "1f56201436ad0377399bdfe0ee2b1279"));          //pass: 456
+        this.users.put("Tomek", new Customer("Tomek", "cf9fac80c86b9714c697d4204829e9af"));     //pass: 23456
+        this.users.put("Olek", new Customer("Olek", "1e7cc5f664c541e5a4ee57eab6b73abb"));       //pass: 34567
+        this.users.put("Wojtek", new Customer("Wojtek", "44cf3a7e1def7261e426cbda3f936ec4"));   //pass: 45678
     }*/
     @Override
     public boolean addUser(String function, String login, String password) {

@@ -47,7 +47,7 @@ public class FileLoader implements IFileLoader {
                     users.writeUserToDb(objectData);
                     break;
                 default:
-                    System.out.println("Unexpected type during database loading");
+                    System.out.println("Nieznany typ podczas odczytu z bazy danych");
                     break;
             }
         }
